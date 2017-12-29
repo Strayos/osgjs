@@ -77,7 +77,7 @@ osgWrapper.StateSet = function(input, stateSet) {
     var createAttribute = function(jsonAttribute) {
         var promise = input.setJSON(jsonAttribute).readObject();
         if (
-            promise.isRejected() // sometimes we have some empty objects
+            promise.isRejected && promise.isRejected() // sometimes we have some empty objects
         )
             return;
         promiseArray.push(promise);
@@ -93,7 +93,7 @@ osgWrapper.StateSet = function(input, stateSet) {
     var createTextureAttribute = function(unit, textureAttribute) {
         var promise = input.setJSON(textureAttribute).readObject();
         if (
-            promise.isRejected() // sometimes we have some empty objects
+            promise.isRejected && promise.isRejected() // sometimes we have some empty objects
         )
             return;
         promiseArray.push(promise);

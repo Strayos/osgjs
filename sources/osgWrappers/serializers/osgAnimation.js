@@ -319,7 +319,7 @@ osgAnimationWrapper.BasicAnimationManager = function(input, manager) {
 
     for (var i = 0, l = jsonObj.Animations.length; i < l; i++) {
         var promiseAnimation = input.setJSON(jsonObj.Animations[i]).readObject();
-        if (promiseAnimation.isRejected()) {
+        if (promiseAnimation.isRejected && promiseAnimation.isRejected()) {
             notify.warn('An Animation failed on the parsing!');
             continue;
         }
@@ -345,7 +345,7 @@ osgAnimationWrapper.UpdateMatrixTransform = function(input, umt) {
     var i, l;
     for (i = 0, l = jsonObj.StackedTransforms.length; i < l; i++) {
         var promiseStacked = input.setJSON(jsonObj.StackedTransforms[i]).readObject();
-        if (promiseStacked.isRejected()) {
+        if (promiseStacked.isRejected && promiseStacked.isRejected()) {
             notify.warn('A stacked transforms failed on the parsing!');
             continue;
         }
