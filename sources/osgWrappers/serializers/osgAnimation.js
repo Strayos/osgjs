@@ -265,7 +265,7 @@ osgAnimationWrapper.BasicAnimationManager = function ( input, manager ) {
 
     for ( var i = 0, l = jsonObj.Animations.length; i < l; i++ ) {
         var prim = input.setJSON( jsonObj.Animations[ i ] ).readObject();
-        if ( prim.isRejected() ) {
+        if ( prim.isRejected && prim.isRejected() ) {
             Notify.warn( 'An Animation failed on the parsing!' );
             continue;
         }
